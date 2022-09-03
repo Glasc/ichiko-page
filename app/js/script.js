@@ -1,6 +1,19 @@
+const nav = document.querySelector('.nav')
 const navMobile = document.querySelector('.nav-mobile')
 const navIcon = document.querySelector('.nav-mobile__icon')
 const navLinks = document.querySelector('.nav-mobile__links')
+
+setInterval(() => {
+  const isScrolling = window.scrollY != 0
+
+  if (isScrolling) {
+    navMobile.setAttribute("scrolling", "")
+    return nav.setAttribute('scrolling', '')
+  }
+
+  nav.removeAttribute('scrolling')
+  navMobile.removeAttribute('scrolling')
+}, 400)
 
 navIcon.addEventListener('click', (e) => {
   const currentIcon = e.target.getAttribute('src')
