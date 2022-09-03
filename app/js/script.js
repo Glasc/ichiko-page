@@ -3,11 +3,13 @@ const navMobile = document.querySelector('.nav-mobile')
 const navIcon = document.querySelector('.nav-mobile__icon')
 const navLinks = document.querySelector('.nav-mobile__links')
 
+nav.removeAttribute('scrolling')
+
 setInterval(() => {
   const isScrolling = window.scrollY != 0
 
   if (isScrolling) {
-    navMobile.setAttribute("scrolling", "")
+    navMobile.setAttribute('scrolling', '')
     return nav.setAttribute('scrolling', '')
   }
 
