@@ -1,0 +1,159 @@
+@use 'mixins' as m;
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  min-height: 90vh;
+  width: 100%;
+  background-image: url('../../header-img.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  justify-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.nav {
+  position: relative;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: baseline;
+  width: min(76rem, 90%);
+  margin: 0 auto;
+  padding-top: 1em;
+  &__title {
+    font-weight: 800;
+  }
+  &__links {
+    justify-self: flex-end;
+  }
+  &__login {
+    @include m.button;
+    background-color: transparent;
+    color: white;
+  }
+  &__create {
+    @include m.button;
+    background-color: #184e40;
+    color: white;
+  }
+}
+
+.nav-mobile {
+  position: relative;
+  color: white;
+  width: 100%;
+  padding-top: 1em;
+  display: flex;
+
+  flex-direction: column;
+  &[open] {
+    background-color: #3b2240;
+    transition: all 400ms;
+  }
+  &__links {
+    padding-top: 2em;
+    padding-bottom: 1em;
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    &[hide] {
+      display: none;
+    }
+  }
+  &__wrapper {
+    width: min(76rem, 90%);
+    margin: 0 auto;
+    position: relative;
+  }
+  &__title {
+  }
+  &__login {
+  }
+  &__create {
+  }
+  &__icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+  }
+
+  .nav-mobile {
+  }
+}
+
+.hero {
+  position: relative;
+  color: white;
+  text-align: center;
+  width: min(76rem, 90%);
+  margin: 0 auto;
+  &__title {
+    font-size: 4rem;
+    font-weight: 500;
+  }
+  &__description {
+    font-size: 1.25rem;
+    color: #d5d5d5;
+    margin-bottom: 1.25em;
+    margin-top: 0.25em;
+  }
+  &__button {
+    @include m.button;
+    background-color: #3b2240;
+    color: white;
+    font-size: 1.3rem;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
