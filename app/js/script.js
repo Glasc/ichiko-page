@@ -12,7 +12,7 @@ setInterval(() => {
 
   nav.removeAttribute('scrolling')
   navMobile.removeAttribute('scrolling')
-}, 400)
+}, 350)
 
 navIcon.addEventListener('click', (e) => {
   const currentIcon = e.target.getAttribute('src')
